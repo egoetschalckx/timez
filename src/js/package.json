@@ -1,0 +1,21 @@
+{
+	"name": "timez",
+	"version": "0.1",
+	"description": "timez by Eric Goetschalckx ",
+	"main": "timez.js",
+	"scripts": {
+		"start": "node times.js"
+	},
+	"dependencies": {
+		"dayjs": "^1.11.9"
+	},
+	"engines": {
+		"node": "4.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/egoetschalckx/timez"
+	},
+	"author": "Eric Goetschalckx",
+	"license": "MIT"
+}
