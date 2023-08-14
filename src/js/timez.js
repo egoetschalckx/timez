@@ -15,19 +15,25 @@ const argv = yargs(hideBin(process.argv))
     .alias('ts', 'timestamp')
     .default('ts', '2023-08-09T21:51:38.625+05:00')
     .describe('ts', 'ISO-8601 timestamp')
+    .command('$0', 'Converts ISO-8601 standard timestamps to an arbirary UTC offset / timezone and outputs the result.')
+    .epilog('Copyright: NCR Corporation (2023)')
     .argv
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(advancedFormat)
 
-const ts = argv.ts
-const tz = argv.tz
+const convertedTs = dayjs(argv.ts).tz(argv.tz)
 
-const convertedTs = dayjs(ts).tz(tz)
-const outputDay = convertedTs.format('ddd')
-const outputMDY = convertedTs.format('MMM DD YYYY')
-const outputHMS = convertedTs.format('hh:mm:ss.SSS A')
-const outputTz = convertedTs.format('z (zzz)')
-
-console.log(chalk.blue(outputDay) + ', ' + chalk.magenta(outputMDY) + ' ' + chalk.red(outputHMS) + ' ' + chalk.yellow(outputTz))
+console.log(
+    // Day (eg: Wed)
+    chalk.blueBright.bold(convertedTs.format('ddd')) 
+    + ', ' 
+    // Date (eg: Aug 09 2023)
+    + chalk.magenta.bold(convertedTs.format('MMM DD YYYY')) 
+    + ' @ ' 
+    // Time (eg: 05:50:00.010 PM)
+    + chalk.red.bold(convertedTs.format('hh:mm:ss.SSS A')) 
+    + ' ' 
+    // Timezone (eg: EDT (Eastern Daylight Time))
+    + chalk.yellow.bold(convertedTs.format('z (zzz)')))
