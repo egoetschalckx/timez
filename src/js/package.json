@@ -1,16 +1,16 @@
 {
 	"name": "timez",
 	"version": "0.1",
-	"description": "timez by Eric Goetschalckx ",
+	"description": "timez converts ISO-8601 standard timestamps to an arbirary UTC offset / timezone and outputs the result.",
 	"main": "timez.js",
+	"type": "module",
 	"scripts": {
-		"start": "node times.js"
+		"start": "node timez"
 	},
 	"dependencies": {
-		"dayjs": "^1.11.9"
-	},
-	"engines": {
-		"node": "4.0.0"
+		"dayjs": "^1.11.9",
+		"yargs": "^17.7.2",
+		"chalk": "^5.3.0"
 	},
 	"repository": {
 		"type": "git",
