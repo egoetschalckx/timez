@@ -7,8 +7,14 @@ import { hideBin } from 'yargs/helpers'
 import chalk from 'chalk'
 
 const argv = yargs(hideBin(process.argv))
+    .help('h')
+    .alias('h', 'help')
+    .alias('tz', 'timezone')
     .default('tz', 'US/Eastern')
+    .describe('tz', 'Timezone')
+    .alias('ts', 'timestamp')
     .default('ts', '2023-08-09T21:51:38.625+05:00')
+    .describe('ts', 'ISO-8601 timestamp')
     .argv
 
 dayjs.extend(utc)

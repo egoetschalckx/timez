@@ -1,6 +1,6 @@
 {
 	"name": "timez",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "timez converts ISO-8601 standard timestamps to an arbirary UTC offset / timezone and outputs the result.",
 	"main": "timez.js",
 	"type": "module",
